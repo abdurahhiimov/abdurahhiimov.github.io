@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  CLIENT: Jennifer N. Lopez, CPA
+  PALETTE: 
+    #0D0D0D (near-black) — anchors the site with authority
+    #C8A96E (warm gold) — signals prestige without ostentation
+    #F5F0E8 (warm off-white) — softer than pure white, feels like high-quality paper stock
+  FONTS: 
+    Playfair Display (serif display) — editorial weight
+    DM Sans (clean sans-serif body) — modern, readable
+  THESIS LINE: "The CPA who sees the full picture — from audit rooms to boardrooms."
+  DESIGN CONCEPT: Editorial luxury — dark and confident, gold accents, generous negative space.
+  CHANGES v3: removed portrait from About, accordion dropdowns for Experience, removed phone from Contact
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jennifer N. Lopez, CPA — Finance & Accounting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0D0D0D;
+      --gold: #C8A96E;
+      --gold-light: #E2C99A;
+      --cream: #F5F0E8;
+      --cream-dark: #EDE7D9;
+      --gray: #6B6B6B;
+      --gray-light: #999;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,169,110,0.15);
+      transition: padding 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(200,169,110,0.2) 30%, rgba(200,169,110,0.2) 70%, transparent);
+    }
+
+    .hero-bg-circle {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,169,110,0.08);
+      top: 50%;
+      right: -100px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .hero-bg-circle::before {
+      content: '';
+      position: absolute;
+      inset: 60px;
+      border-radius: 50%;
+      border: 1px solid rgba(200,169,110,0.06);
+    }
+
+    .hero-left {
+      padding-right: 4rem;
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1.hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 5vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    h1.hero-name span {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold);
+    }
+
+    .hero-credential {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-thesis {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--cream-dark);
+      margin-bottom: 3rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--gold);
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--gold);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      transition: background 0.25s, gap 0.25s;
+    }
+
+    .hero-cta:hover { background: var(--gold-light); gap: 1.2rem; }
+    .hero-cta svg { flex-shrink: 0; }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2rem;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(200,169,110,0.15);
+      border: 1px solid rgba(200,169,110,0.15);
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .stat-box {
+      background: var(--black);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .stat-box:hover { background: #141414; }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+    }
+
+    .hero-companies {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .hero-companies-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+
+    .hero-companies-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .company-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(200,169,110,0.25);
+      color: var(--gray-light);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .company-tag:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 4rem; }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      flex: 1;
+      height: 1px;
+      max-width: 3rem;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    h2.section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 3rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--cream);
+      color: var(--black);
+    }
+
+    #about .section-label { color: #8B6E3E; }
+    #about .section-label::after { background: #8B6E3E; }
+    #about h2.section-title { color: var(--black); }
+
+    /* About: single column now that portrait is removed */
+    .about-facts-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(139,110,62,0.15);
+    }
+
+    .fact-pill {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding: 1.2rem 2rem;
+      border-right: 1px solid rgba(139,110,62,0.15);
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .fact-pill:last-child { border-right: none; }
+
+    .fact-key {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8B6E3E;
+    }
+
+    .fact-val {
+      font-size: 0.88rem;
+      color: var(--black);
+      font-weight: 400;
+    }
+
+    .about-body p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #2A2A2A;
+      margin-bottom: 1.8rem;
+    }
+
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .about-pull-quote {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #8B6E3E;
+      padding: 2rem;
+      border-left: 3px solid #8B6E3E;
+      background: rgba(200,169,110,0.08);
+      margin: 2.5rem 0;
+    }
+
+    /* ── EXPERIENCE (accordion) ── */
+    #experience { background: var(--black); }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0 4rem;
+    }
+
+    .exp-sidebar { padding-top: 0.3rem; }
+
+    .exp-sidebar-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+
+    .exp-sidebar-line {
+      width: 1px;
+      height: calc(100% - 3rem);
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin-left: 0.5px;
+    }
+
+    .exp-entries {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* accordion item */
+    .exp-entry {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .exp-entry:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+
+    .exp-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 0;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .exp-header:hover { background: rgba(200,169,110,0.03); }
+
+    .exp-header-left { }
+
+    .exp-company {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--cream);
+    }
+
+    .exp-header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.3rem;
+      flex-shrink: 0;
+    }
+
+    .exp-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+
+    .exp-location {
+      font-size: 0.7rem;
+      color: var(--gray);
+    }
+
+    .exp-toggle {
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(200,169,110,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.5rem;
+      flex-shrink: 0;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .exp-entry.open .exp-toggle { border-color: var(--gold); background: rgba(200,169,110,0.1); }
+
+    .exp-toggle svg {
+      color: var(--gold);
+      transition: transform 0.3s ease;
+    }
+
+    .exp-entry.open .exp-toggle svg { transform: rotate(45deg); }
+
+    .exp-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+    }
+
+    .exp-entry.open .exp-body {
+      grid-template-rows: 1fr;
+    }
+
+    .exp-body-inner {
+      overflow: hidden;
+    }
+
+    .exp-description {
+      font-size: 0.9rem;
+      color: rgba(245,240,232,0.65);
+      line-height: 1.8;
+      max-width: 620px;
+      padding-bottom: 2rem;
+    }
+
+    /* ── PHILOSOPHY ── */
+    #philosophy {
+      background: var(--gold);
+      color: var(--black);
+      padding: 8rem 4rem;
+      text-align: center;
+    }
+
+    .philosophy-inner { max-width: 860px; margin: 0 auto; }
+
+    .philosophy-mark {
+      font-family: var(--serif);
+      font-size: 6rem;
+      line-height: 0.8;
+      color: rgba(13,13,13,0.15);
+      margin-bottom: 1rem;
+    }
+
+    .philosophy-quote {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+      color: var(--black);
+    }
+
+    .philosophy-attribution {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(13,13,13,0.5);
+    }
+
+    /* ── EDUCATION ── */
+    #education { background: #111; }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(200,169,110,0.1);
+    }
+
+    .edu-card {
+      background: #111;
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(200,169,110,0.1);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .edu-card:hover { background: #161616; border-color: rgba(200,169,110,0.25); }
+
+    .edu-icon {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .edu-school {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .edu-degree { font-size: 0.85rem; color: var(--gold); margin-bottom: 0.5rem; }
+
+    .edu-dates { font-size: 0.72rem; letter-spacing: 0.1em; color: var(--gray); }
+
+    /* ── CERTIFICATIONS ── */
+    #certifications {
+      background: var(--cream);
+      color: var(--black);
+    }
+
+    #certifications .section-label { color: #8B6E3E; }
+    #certifications .section-label::after { background: #8B6E3E; }
+    #certifications h2.section-title { color: var(--black); }
+
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 700px;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid rgba(139,110,62,0.15);
+    }
+
+    .cert-item:first-child { padding-top: 0; }
+
+    .cert-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .cert-name {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--black);
+      flex: 1;
+    }
+
+    .cert-status {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8B6E3E;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(139,110,62,0.3);
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--black); padding: 8rem 4rem; }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-left h2 em { font-style: italic; color: var(--gold); }
+
+    .contact-left p {
+      font-size: 0.95rem;
+      color: rgba(245,240,232,0.6);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--cream);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      padding: 1rem 1.5rem;
+      border: 1px solid rgba(200,169,110,0.2);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--gold); background: rgba(200,169,110,0.05); }
+
+    .contact-link-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(200,169,110,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-link-icon svg { color: var(--gold); }
+
+    .contact-right { padding-top: 1rem; }
+
+    .contact-detail-block { margin-bottom: 3rem; }
+
+    .contact-detail-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-detail-value {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--cream);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080808;
+      border-top: 1px solid rgba(200,169,110,0.1);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-name { font-family: var(--serif); font-size: 0.9rem; color: var(--gold); }
+    .footer-copy { font-size: 0.72rem; color: var(--gray); letter-spacing: 0.05em; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 1.5rem; }
+      #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 5rem; min-height: 100svh; }
+      .hero-bg-line, .hero-bg-circle { display: none; }
+      .hero-left { padding-right: 0; }
+      .hero-right { align-items: flex-start; }
+      .hero-stats { max-width: 100%; }
+      .hero-companies { max-width: 100%; }
+      .about-facts-row { flex-direction: column; }
+      .fact-pill { border-right: none; border-bottom: 1px solid rgba(139,110,62,0.15); }
+      .fact-pill:last-child { border-bottom: none; }
+      .experience-grid { grid-template-columns: 1fr; gap: 0; }
+      .exp-sidebar { display: none; }
+      .exp-header { grid-template-columns: 1fr auto; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+      #philosophy { padding: 5rem 1.5rem; }
+      #contact { padding: 5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">JNL</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-line"></div>
+    <div class="hero-bg-circle"></div>
+
+    <div class="hero-left">
+      <div class="hero-eyebrow">CPA · MBA Candidate · Finance Leader</div>
+      <h1 class="hero-name">
+        Jennifer N.
+        <span>Lopez</span>
+      </h1>
+      <p class="hero-credential">CPA · Pepperdine Graziadio MBA '26</p>
+      <p class="hero-thesis">
+        The CPA who sees the full picture — from audit rooms to boardrooms.
+      </p>
+      <a href="#contact" class="hero-cta">
+        Get in Touch
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 7h12M7.5 1.5L13 7l-5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="stat-box">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Industry Sectors</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">CPA</div>
+          <div class="stat-label">Active License</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">MBA</div>
+          <div class="stat-label">Pepperdine '26</div>
+        </div>
+      </div>
+
+      <div class="hero-companies">
+        <div class="hero-companies-label">Worked With</div>
+        <div class="hero-companies-list">
+          <span class="company-tag">PwC</span>
+          <span class="company-tag">MongoDB</span>
+          <span class="company-tag">BILL</span>
+          <span class="company-tag">Bluevine</span>
+          <span class="company-tag">Kentik</span>
+          <span class="company-tag">Summit Therapeutics</span>
+          <span class="company-tag">Vaco</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label reveal">About</div>
+    <h2 class="section-title reveal">A decade of close work, now building toward something bigger.</h2>
+
+    <div class="about-facts-row reveal">
+      <div class="fact-pill">
+        <span class="fact-key">Based in</span>
+        <span class="fact-val">Los Angeles, CA</span>
+      </div>
+      <div class="fact-pill">
+        <span class="fact-key">License</span>
+        <span class="fact-val">CPA, Active</span>
+      </div>
+      <div class="fact-pill">
+        <span class="fact-key">Currently</span>
+        <span class="fact-val">MBA Candidate, Pepperdine</span>
+      </div>
+      <div class="fact-pill">
+        <span class="fact-key">Focus Areas</span>
+        <span class="fact-val">Healthcare, Media & Tech</span>
+      </div>
+      <div class="fact-pill">
+        <span class="fact-key">Languages</span>
+        <span class="fact-val">English (Native)</span>
+      </div>
+    </div>
+
+    <div class="about-body">
+      <p class="reveal reveal-delay-1">
+        My career started at PwC, where I cut my teeth on life science and venture capital audits in San Francisco — the kind of work that trains you to spot risk before anyone else in the room does. From there, I moved into industry roles at some of the most interesting companies in tech: MongoDB during its scaling years, BILL when fintech was rewriting how businesses manage cash, and Bluevine when alternative lending was genuinely new. Each stop added a different angle on how finance actually functions inside a fast-moving company.
+      </p>
+
+      <div class="about-pull-quote reveal reveal-delay-1">
+        "I'm drawn to companies at inflection points — places where the accounting isn't just a compliance function, but a real signal about what's working."
+      </div>
+
+      <p class="reveal reveal-delay-2">
+        The through-line across all of it has been complex, high-stakes environments: Series E SaaS companies, biotech restructurings, hypergrowth startups where month-end close feels like a contact sport. I've led G&A accruals through corporate restructuring, built out financial reporting infrastructure from scratch, and served as a consultant at Kentik and Vaco when companies needed someone who could step in, get oriented fast, and deliver without hand-holding. I also spent time studying international economics in Barcelona, which gave me an early instinct for thinking across borders.
+      </p>
+
+      <p class="reveal reveal-delay-3">
+        Now I'm at Pepperdine Graziadio pursuing my MBA in Finance, with a focus on healthcare, media, and technology. The MBA isn't a reset — it's a deliberate expansion. I want to move from executing financial strategy to shaping it, and I'm building the network and toolkit to do exactly that. The next chapter is about bringing a decade of operational credibility into rooms where the decisions are being made, not just reported on.
+      </p>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy">
+    <div class="philosophy-inner">
+      <div class="philosophy-mark">&ldquo;</div>
+      <p class="philosophy-quote reveal">
+        Accounting isn't a back-office function. Done right, it's the clearest signal a company has about what's actually true — and what's coming next.
+      </p>
+      <div class="philosophy-attribution reveal">Jennifer N. Lopez, CPA</div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label reveal">Experience</div>
+    <h2 class="section-title reveal">A track record built across <em style="font-style:italic; color:var(--gold);">high-growth environments.</em></h2>
+
+    <div class="experience-grid">
+      <div class="exp-sidebar">
+        <div class="exp-sidebar-label">Timeline</div>
+        <div class="exp-sidebar-line"></div>
+      </div>
+
+      <div class="exp-entries">
+
+        <div class="exp-entry reveal">
+          <div class="exp-header" onclick="toggleExp(this)">
+            <div class="exp-header-left">
+              <div class="exp-company">Vaco</div>
+              <div class="exp-title">Accounting Consultant</div>
+            </div>
+            <div class="exp-header-right">
+              <div class="exp-date">2024 – 2025</div>
+              <div class="exp-toggle">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-body-inner">
+              <div class="exp-description">
+                Embedded at a Series E global SaaS company, providing senior accounting expertise during a period of rapid organizational growth. Supported financial reporting, close processes, and audit readiness in an environment where precision under pressure wasn't optional.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-entry reveal">
+          <div class="exp-header" onclick="toggleExp(this)">
+            <div class="exp-header-left">
+              <div class="exp-company">Summit Therapeutics, Inc.</div>
+              <div class="exp-title">Accounting Manager</div>
+            </div>
+            <div class="exp-header-right">
+              <div class="exp-date">2023</div>
+              <div class="exp-location">Menlo Park, CA</div>
+              <div class="exp-toggle">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-body-inner">
+              <div class="exp-description">
+                Stepped into a critical role during a corporate restructuring, leading G&A accruals with the rigor required in a publicly traded biotech environment. Navigated the complexity of SEC-level financial reporting obligations while the organization itself was in transition.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-entry reveal">
+          <div class="exp-header" onclick="toggleExp(this)">
+            <div class="exp-header-left">
+              <div class="exp-company">Kentik</div>
+              <div class="exp-title">Senior Accounting Consultant</div>
+            </div>
+            <div class="exp-header-right">
+              <div class="exp-date">2021 – 2023</div>
+              <div class="exp-toggle">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-body-inner">
+              <div class="exp-description">
+                Served a two-year engagement at this network intelligence company, owning core accounting functions and supporting the finance team through growth-stage scaling challenges. Demonstrated the ability to operate independently inside a lean, engineering-driven organization.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-entry reveal">
+          <div class="exp-header" onclick="toggleExp(this)">
+            <div class="exp-header-left">
+              <div class="exp-company">Bluevine</div>
+              <div class="exp-title">Senior Accountant</div>
+            </div>
+            <div class="exp-header-right">
+              <div class="exp-date">2019 – 2020</div>
+              <div class="exp-toggle">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-body-inner">
+              <div class="exp-description">
+                Joined when fintech lending was still establishing its playbook. Contributed to the financial infrastructure of a company now recognized as a leader in SMB banking, gaining hands-on exposure to alternative credit products and the accounting complexity they create.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-entry reveal">
+          <div class="exp-header" onclick="toggleExp(this)">
+            <div class="exp-header-left">
+              <div class="exp-company">BILL</div>
+              <div class="exp-title">Senior Accountant</div>
+            </div>
+            <div class="exp-header-right">
+              <div class="exp-date">2018 – 2019</div>
+              <div class="exp-location">San Francisco Bay Area</div>
+              <div class="exp-toggle">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-body-inner">
+              <div class="exp-description">
+                Operated inside one of Silicon Valley's most-watched fintech companies during a defining growth phase, supporting the accounting team as the company scaled its platform and user base ahead of its eventual NYSE listing.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-entry reveal">
+          <div class="exp-header" onclick="toggleExp(this)">
+            <div class="exp-header-left">
+              <div class="exp-company">MongoDB</div>
+              <div class="exp-title">GL Accountant</div>
+            </div>
+            <div class="exp-header-right">
+              <div class="exp-date">2016 – 2017</div>
+              <div class="exp-location">Palo Alto, CA</div>
+              <div class="exp-toggle">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-body-inner">
+              <div class="exp-description">
+                Managed general ledger responsibilities at one of the most consequential database companies of its generation, gaining deep experience in the financial operations of a scaling enterprise software business.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-entry reveal">
+          <div class="exp-header" onclick="toggleExp(this)">
+            <div class="exp-header-left">
+              <div class="exp-company">PwC</div>
+              <div class="exp-title">Assurance Associate → Experienced Associate</div>
+            </div>
+            <div class="exp-header-right">
+              <div class="exp-date">2014 – 2015</div>
+              <div class="exp-location">San Jose / SF Bay Area</div>
+              <div class="exp-toggle">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-body-inner">
+              <div class="exp-description">
+                Began career in public accounting at one of the world's top audit firms, serving life science and venture capital clients across the Bay Area. Developed the foundational technical rigor — SEC reporting, audit methodology, risk assessment — that anchors everything that followed.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-label reveal">Education</div>
+    <h2 class="section-title reveal">The academic foundation behind the work.</h2>
+
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-icon"></div>
+        <div class="edu-school">Pepperdine Graziadio Business School</div>
+        <div class="edu-degree">Master of Business Administration — Finance</div>
+        <div class="edu-dates">August 2025 – August 2026</div>
+      </div>
+      <div class="edu-card reveal reveal-delay-1">
+        <div class="edu-icon"></div>
+        <div class="edu-school">University of San Diego</div>
+        <div class="edu-degree">Bachelor of Accountancy</div>
+        <div class="edu-dates"></div>
+      </div>
+      <div class="edu-card reveal reveal-delay-2">
+        <div class="edu-icon"></div>
+        <div class="edu-school">Universitat Autònoma de Barcelona</div>
+        <div class="edu-degree">Study Abroad — International Economics</div>
+        <div class="edu-dates">Fundación José Ortega y Gasset</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="section-label reveal">Credentials</div>
+    <h2 class="section-title reveal">Earned. Maintained. Active.</h2>
+
+    <div class="cert-list">
+      <div class="cert-item reveal">
+        <div class="cert-dot"></div>
+        <div class="cert-name">Certified Public Accountant (CPA)</div>
+        <div class="cert-status">Active</div>
+      </div>
+      <div class="cert-item reveal reveal-delay-1">
+        <div class="cert-dot"></div>
+        <div class="cert-name">Equity Compensation Associate — Level I</div>
+        <div class="cert-status">Certified</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-label reveal">Contact</div>
+        <h2 class="reveal">Let's start a <em>conversation.</em></h2>
+        <p class="reveal">
+          Whether you're looking for a senior finance and accounting professional, a strategic partner, or want to discuss opportunities in healthcare, media, or technology — I'd like to hear from you.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:jennifer@example.com" class="contact-link reveal">
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M1 4l7 5 7-5" stroke="currentColor" stroke-width="1.3"/>
+              </svg>
+            </div>
+            Send an Email
+          </a>
+          <a href="https://www.linkedin.com/in/jennilopezn" target="_blank" class="contact-link reveal reveal-delay-1">
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M4 6.5v5M4 4v.5M7 11.5V9c0-1.1.9-2 2-2s2 .9 2 2v2.5M7 6.5v5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right reveal">
+        <div class="contact-detail-block">
+          <div class="contact-detail-label">Location</div>
+          <div class="contact-detail-value">Los Angeles Metropolitan Area</div>
+        </div>
+        <div class="contact-detail-block">
+          <div class="contact-detail-label">Currently</div>
+          <div class="contact-detail-value">MBA Candidate, Pepperdine Graziadio<br>Class of 2026</div>
+        </div>
+        <div class="contact-detail-block">
+          <div class="contact-detail-label">Open To</div>
+          <div class="contact-detail-value">Finance leadership roles in Healthcare, Media & Technology</div>
+        </div>
+        <div class="contact-detail-block">
+          <div class="contact-detail-label">Expertise</div>
+          <div class="contact-detail-value">Financial Reporting · Month-End Close · Audit Readiness · SEC Compliance · Equity Compensation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Jennifer N. Lopez, CPA</div>
+    <div class="footer-copy">© <span id="year"></span> · All rights reserved</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Accordion
+    function toggleExp(header) {
+      const entry = header.closest('.exp-entry');
+      const isOpen = entry.classList.contains('open');
+      // close all
+      document.querySelectorAll('.exp-entry.open').forEach(e => e.classList.remove('open'));
+      // open clicked if it was closed
+      if (!isOpen) entry.classList.add('open');
+    }
+  </script>
+</body>
+</html>
